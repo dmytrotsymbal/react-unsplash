@@ -33,7 +33,7 @@ export const fetchImages = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get(
-                'https://api.unsplash.com/photos/random?client_id=s2iDMNtNY-yGTP-Q8T1X3dNDY8Dw3vzuBE6T1ia07hg&count=50'
+                'https://api.unsplash.com/photos/random?client_id=s2iDMNtNY-yGTP-Q8T1X3dNDY8Dw3vzuBE6T1ia07hg&count=30'
             )
             return response.data
         } catch (error) {
