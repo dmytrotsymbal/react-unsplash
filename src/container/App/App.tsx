@@ -12,7 +12,6 @@ function App(props: Props) {
         <>
             <CssBaseline />
             <Header />
-            <br />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/image/:id" element={<ImageDetails />} />
