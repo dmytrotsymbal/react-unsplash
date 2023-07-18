@@ -15,10 +15,9 @@
         button {
             width: 100px;
             height: 40px;
-            display: inline-block;
-            font-weight: bold;
-            text-align: center;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #ffffff;
             background-color: #ff0000;
             border: none;
