@@ -13,7 +13,7 @@ const PhotoList = () => {
     }, [dispatch])
 
     if (status === 'loading') {
-        return <div>Loading...</div>
+        return <div className="custom-loader"></div>
     }
 
     if (status === 'failed') {
