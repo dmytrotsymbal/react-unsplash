@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import unsplashReducer from './unsplashSlice'
+import paginationSlice from './paginationSlice'
 
 export const store = configureStore({
     reducer: {
         unsplash: unsplashReducer,
+        pagination: paginationSlice,
     },
 })
 

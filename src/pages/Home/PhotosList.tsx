@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Photo from './Photo'
 import { Grid } from '@mui/material'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { fetchImages } from 'redux/unsplashSlice'
 import Pagination from 'Components/Pagination/Pagination'
+import { nextPage, prevPage } from 'redux/paginationSlice'
 
 const PhotoList = () => {
     const { images, status, error } = useAppSelector((state) => state.unsplash)
     const dispatch = useAppDispatch()
 
-    const [pageNumber, setPageNumber] = useState<number>(1)
+    const pageNumber = useAppSelector((state) => state.pagination.pageNumber)
 
     useEffect(() => {
         dispatch(fetchImages(pageNumber))
@@ -23,18 +24,11 @@ const PhotoList = () => {
         return <div>Error: {error}</div>
     }
 
-    const nextPageFunction = () => {
-        setPageNumber(pageNumber + 1)
-    }
-
-    const prevPageFunction = () => {
-        setPageNumber(pageNumber - 1)
-    }
     return (
         <>
             <Pagination
-                nextPageFunction={nextPageFunction}
-                prevPageFunction={prevPageFunction}
+                nextPage={() => dispatch(nextPage())}
+                prevPage={() => dispatch(prevPage())}
             />
             <div>
                 <Grid container spacing={2}>
