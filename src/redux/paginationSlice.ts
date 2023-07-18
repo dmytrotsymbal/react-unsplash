@@ -9,7 +9,7 @@ const initialState: Page = {
 }
 
 const paginationSlice = createSlice({
-    name: 'unsplash',
+    name: 'pagination',
     initialState,
     reducers: {
         nextPage: (state) => {

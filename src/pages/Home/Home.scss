@@ -2,27 +2,30 @@
     width: 300px;
     height: 430px;
     margin-bottom: 30px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
     position: relative;
+    transition: transform 0.3s ease;
 
     .likesButton {
         position: absolute;
         top: 5px;
         right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
     }
 
-    &:hover {
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    .likesButton:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     img {
         width: 300px;
         height: 300px;
-        transition: transform 0.3s ease;
-
-        &:hover {
-            transform: scale(1.05);
-        }
     }
 
     .CardLink {
@@ -40,6 +43,11 @@
             font-style: italic;
         }
     }
+}
+
+.PhotoElement:hover {
+    transition: 0.3s;
+    transform: translateY(-5px);
 }
 
 .custom-loader {

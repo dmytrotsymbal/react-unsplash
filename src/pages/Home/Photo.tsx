@@ -4,27 +4,31 @@ import { Link } from 'react-router-dom'
 import { Image } from 'utils/photosArray'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
-import { useState } from 'react'
+import { useAppSelector, useAppDispatch } from 'redux/hooks'
+import { addLike, removeLike } from 'redux/likesSlice'
 
 type PhotoProps = {
     image: Image
 }
 
 const Photo = ({ image }: PhotoProps) => {
-    const [like, setLike] = useState<boolean>(false)
-
-    const toggleLike = () => {
-        setLike(!like)
-    }
+    const isLiked = useAppSelector((state) => state.productsLikeState[image.id])
+    const dispatch = useAppDispatch()
 
     return (
         <>
             <Card className="PhotoElement">
                 <img src={image.urls.small} alt="PhotoElementImg" />
-                <button onClick={toggleLike} className="likesButton">
-                    {like ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
-
-                    {like ? image.likes + 1 : image.likes}
+                <button
+                    className="likesButton"
+                    onClick={() => {
+                        isLiked
+                            ? dispatch(removeLike(image.id))
+                            : dispatch(addLike(image.id))
+                    }}
+                >
+                    {isLiked ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
+                    <span>{image.likes}</span>
                 </button>
                 <CardContent>
                     <Link
