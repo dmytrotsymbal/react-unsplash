@@ -1,7 +1,8 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Image } from 'utils/photosArray'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
+import ShareIcon from '@mui/icons-material/Share'
 import { useAppSelector, useAppDispatch } from 'redux/hooks'
 import { addLike, removeLike } from 'redux/likesSlice'
 
@@ -16,34 +17,44 @@ const Photo = ({ image }: PhotoProps) => {
     return (
         <>
             <div className="PhotoElement">
-                <img
-                    className="CardImg"
-                    src={image.urls.small}
-                    alt="PhotoElementImg"
-                />
+                <Link
+                    style={{ textDecoration: 'none', color: 'black' }}
+                    to={`/image/${image.id}`}
+                >
+                    <img
+                        className="CardImg"
+                        src={image.urls.small}
+                        alt="PhotoElementImg"
+                    />
+                </Link>
                 <button
-                    className="likesButton"
+                    className={isLiked ? 'likesButtonClicked' : 'likesButton'}
                     onClick={() => {
                         isLiked
                             ? dispatch(removeLike(image.id))
                             : dispatch(addLike(image.id))
                     }}
                 >
-                    {isLiked ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
+                    {isLiked ? (
+                        <ThumbUpAltIcon style={{ width: '17px' }} />
+                    ) : (
+                        <ThumbUpOffAltIcon style={{ width: '17px' }} />
+                    )}
+
                     <span>{image.likes}</span>
                 </button>
-                {/* <div className="CardContent">
-                    <Link
-                        style={{ textDecoration: 'none' }}
-                        to={`/image/${image.id}`}
-                    >
-                        <p className="CardLink">{image.alt_description}</p>
-                    </Link>
 
-                    <p className="CardAuthor">
-                        Author: <span>{image.user.name}</span>
-                    </p>
-                </div> */}
+                <button className="infoButton">
+                    <p>info</p>
+                </button>
+
+                <button className="shareButton">
+                    <ShareIcon style={{ width: '17px' }} />
+                </button>
+
+                <button style={{ display: 'none' }} className="CardAuthor">
+                    Author: <span>{image.user.name}</span>
+                </button>
             </div>
         </>
     )

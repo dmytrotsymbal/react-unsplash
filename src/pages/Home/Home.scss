@@ -1,13 +1,19 @@
 .PhotoElement {
-    margin-bottom: 15px;
     position: relative;
     transition: transform 0.3s ease;
     border-radius: 15px;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
 
     .likesButton {
         position: absolute;
+        z-index: 5;
+        background-color: rgb(202, 200, 200);
         top: 5px;
         right: 5px;
+        width: 45px;
+        height: 25px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -16,37 +22,105 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: background-color 0.3s ease, transform 0.3s ease;
         cursor: pointer;
+        font-size: 13px;
+        display: none;
     }
 
     .likesButton:hover {
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .CardImg {
-        border-radius: 15px;
-        width: 100%;
+    .likesButtonClicked {
+        position: absolute;
+        z-index: 5;
+        background-color: rgb(202, 200, 200);
+        top: 5px;
+        right: 5px;
+        width: 45px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+        font-size: 13px;
+        display: flex;
     }
 
-    // .CardLink {
-    //     margin-top: 3px;
-    //     margin-bottom: 0px;
-    //     text-decoration: none;
-    // }
+    .likesButtonClicked:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
 
-    // .CardAuthor {
-    //     padding: 0;
-    //     margin-top: 3px;
-    //     margin-bottom: 0px;
+    .CardImg {
+        object-fit: cover;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+    }
 
-    //     span {
-    //         font-style: italic;
-    //     }
-    // }
+    .infoButton {
+        position: absolute;
+        z-index: 5;
+        background-color: rgb(202, 200, 200);
+        bottom: 12px;
+        left: 5px;
+        width: 45px;
+        height: 25px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .shareButton {
+        position: absolute;
+        z-index: 5;
+        background-color: rgb(202, 200, 200);
+        bottom: 12px;
+        right: 5px;
+        width: 45px;
+        height: 25px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        cursor: pointer;
+        display: none;
+    }
 }
 
 .PhotoElement:hover {
     transition: 0.3s;
     transform: translateY(-5px);
+
+    .CardImg {
+        filter: brightness(80%);
+    }
+
+    .likesButton {
+        display: flex;
+    }
+
+    .infoButton {
+        display: flex;
+    }
+
+    .shareButton {
+        display: flex;
+    }
 }
 
 .custom-loader {
