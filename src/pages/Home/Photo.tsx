@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Image } from 'utils/photosArray'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
@@ -32,7 +32,7 @@ const Photo = ({ image }: PhotoProps) => {
                     {isLiked ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
                     <span>{image.likes}</span>
                 </button>
-                <div className="CardContent">
+                {/* <div className="CardContent">
                     <Link
                         style={{ textDecoration: 'none' }}
                         to={`/image/${image.id}`}
@@ -43,7 +43,7 @@ const Photo = ({ image }: PhotoProps) => {
                     <p className="CardAuthor">
                         Author: <span>{image.user.name}</span>
                     </p>
-                </div>
+                </div> */}
             </div>
         </>
     )

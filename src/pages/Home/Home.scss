@@ -3,7 +3,6 @@
     position: relative;
     transition: transform 0.3s ease;
     border-radius: 15px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 
     .likesButton {
         position: absolute;
@@ -24,25 +23,25 @@
     }
 
     .CardImg {
-        border-radius: 15px 15px 0 0;
+        border-radius: 15px;
         width: 100%;
     }
 
-    .CardLink {
-        margin-top: 3px;
-        margin-bottom: 0px;
-        text-decoration: none;
-    }
+    // .CardLink {
+    //     margin-top: 3px;
+    //     margin-bottom: 0px;
+    //     text-decoration: none;
+    // }
 
-    .CardAuthor {
-        padding: 0;
-        margin-top: 3px;
-        margin-bottom: 0px;
+    // .CardAuthor {
+    //     padding: 0;
+    //     margin-top: 3px;
+    //     margin-bottom: 0px;
 
-        span {
-            font-style: italic;
-        }
-    }
+    //     span {
+    //         font-style: italic;
+    //     }
+    // }
 }
 
 .PhotoElement:hover {
