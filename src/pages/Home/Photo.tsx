@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Image } from 'utils/photosArray'
+import { Image } from 'redux/unsplashSlice'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import ShareIcon from '@mui/icons-material/Share'
 import { useAppSelector, useAppDispatch } from 'redux/hooks'
 import { addLike, removeLike } from 'redux/likesSlice'
 import { addLikeCount, removeLikeCount } from 'redux/likesCountSlice'
+import { useState } from 'react'
+import PopUp from 'Components/PopUp/PopUp'
 
 type PhotoProps = {
     image: Image
@@ -18,6 +20,20 @@ const Photo = ({ image }: PhotoProps) => {
     const likesCount = useAppSelector(
         (state) => state.likesCountState.likesCount
     )
+
+    //----------------------------------------------------------------
+
+    const [open, setOpen] = useState<boolean>(false)
+
+    const handleOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
+    //----------------------------------------------------------------
 
     return (
         <>
@@ -53,9 +69,11 @@ const Photo = ({ image }: PhotoProps) => {
                     <span>{image.likes + likesCount}</span>
                 </button>
 
-                <button className="infoButton">
-                    <p>info</p>
+                <button className="infoButton" onClick={handleOpen}>
+                    Info
                 </button>
+
+                <PopUp open={open} handleClose={handleClose} image={image} />
 
                 <button className="shareButton">
                     <ShareIcon style={{ width: '17px' }} />

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-interface Image {
+export type Image = {
     id: string
     description: string | null
     alt_description: string
@@ -12,6 +12,16 @@ interface Image {
     user: {
         name: string
         username: string
+        bio: string
+        location: string
+        portfolio_url: string //website link
+        instagram_username: string
+
+        profile_image: {
+            small: string
+            medium: string
+            large: string
+        }
     }
     likes: number
 }
