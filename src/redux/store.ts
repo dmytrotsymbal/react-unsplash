@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import unsplashReducer from './unsplashSlice'
 import paginationSlice from './paginationSlice'
 import likesSlice from './likesSlice'
+import likesCountSlice from './likesCountSlice'
 
 export const store = configureStore({
     reducer: {
         unsplash: unsplashReducer,
         pagination: paginationSlice,
         productsLikeState: likesSlice,
+        likesCountState: likesCountSlice,
     },
 })
 

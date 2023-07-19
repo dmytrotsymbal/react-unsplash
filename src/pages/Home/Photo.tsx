@@ -5,6 +5,7 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import ShareIcon from '@mui/icons-material/Share'
 import { useAppSelector, useAppDispatch } from 'redux/hooks'
 import { addLike, removeLike } from 'redux/likesSlice'
+import { addLikeCount, removeLikeCount } from 'redux/likesCountSlice'
 
 type PhotoProps = {
     image: Image
@@ -13,6 +14,10 @@ type PhotoProps = {
 const Photo = ({ image }: PhotoProps) => {
     const isLiked = useAppSelector((state) => state.productsLikeState[image.id])
     const dispatch = useAppDispatch()
+
+    const likesCount = useAppSelector(
+        (state) => state.likesCountState.likesCount
+    )
 
     return (
         <>
@@ -33,6 +38,10 @@ const Photo = ({ image }: PhotoProps) => {
                         isLiked
                             ? dispatch(removeLike(image.id))
                             : dispatch(addLike(image.id))
+
+                        isLiked
+                            ? dispatch(removeLikeCount(image.id))
+                            : dispatch(addLikeCount(image.id))
                     }}
                 >
                     {isLiked ? (
@@ -41,7 +50,7 @@ const Photo = ({ image }: PhotoProps) => {
                         <ThumbUpOffAltIcon style={{ width: '17px' }} />
                     )}
 
-                    <span>{image.likes}</span>
+                    <span>{image.likes + likesCount}</span>
                 </button>
 
                 <button className="infoButton">
