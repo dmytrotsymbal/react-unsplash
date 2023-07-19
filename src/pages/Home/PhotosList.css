@@ -1,0 +1,15 @@
+.masonry-grid {
+    display: flex;
+    margin-left: -16px; /* Замените на отступ, используемый для вашего контейнера */
+    width: auto;
+}
+
+.masonry-grid-column {
+    padding-left: 16px; /* Замените на отступ, используемый для вашего контейнера */
+    background-clip: padding-box;
+}
+
+.masonry-grid-item {
+    margin-bottom: 16px; /* Регулируйте отступ между элементами */
+    break-inside: avoid; /* Предотвращает разрыв элементов между колонками */
+}

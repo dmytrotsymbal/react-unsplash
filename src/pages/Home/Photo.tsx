@@ -1,5 +1,3 @@
-import { Card } from '@mui/material'
-import CardContent from '@mui/material/CardContent'
 import { Link } from 'react-router-dom'
 import { Image } from 'utils/photosArray'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
@@ -17,8 +15,12 @@ const Photo = ({ image }: PhotoProps) => {
 
     return (
         <>
-            <Card className="PhotoElement">
-                <img src={image.urls.small} alt="PhotoElementImg" />
+            <div className="PhotoElement">
+                <img
+                    className="CardImg"
+                    src={image.urls.small}
+                    alt="PhotoElementImg"
+                />
                 <button
                     className="likesButton"
                     onClick={() => {
@@ -30,7 +32,7 @@ const Photo = ({ image }: PhotoProps) => {
                     {isLiked ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
                     <span>{image.likes}</span>
                 </button>
-                <CardContent>
+                <div className="CardContent">
                     <Link
                         style={{ textDecoration: 'none' }}
                         to={`/image/${image.id}`}
@@ -38,11 +40,11 @@ const Photo = ({ image }: PhotoProps) => {
                         <p className="CardLink">{image.alt_description}</p>
                     </Link>
 
-                    <p>
+                    <p className="CardAuthor">
                         Author: <span>{image.user.name}</span>
                     </p>
-                </CardContent>
-            </Card>
+                </div>
+            </div>
         </>
     )
 }
