@@ -3,7 +3,9 @@ import { Image } from 'redux/unsplashSlice'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser'
 import TwitterIcon from '@mui/icons-material/Twitter'
+
 import './PopUp.scss'
+import { Link } from 'react-router-dom'
 
 type Props = {
     image: Image
@@ -35,52 +37,88 @@ const PopUp = ({ image, handleClose, open }: Props) => {
 
                             <h5>@{image.user.username}</h5>
 
-                            <p>Author: {image.user.name}</p>
+                            <p className="AuthorInfoHeaderName">
+                                Author: {image.user.name}
+                            </p>
+
+                            <p className="AuthorInfoHeaderLocation">
+                                {image.user.location}
+                            </p>
+
+                            <div className="authorLinks">
+                                <a
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black',
+                                    }}
+                                    target="_blank"
+                                    href={`https://www.instagram.com/${image.user.instagram_username}/`}
+                                    rel="noreferrer"
+                                >
+                                    <InstagramIcon />
+                                </a>
+
+                                <a
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black',
+                                    }}
+                                    target="_blank"
+                                    href={image.user.portfolio_url}
+                                    rel="noreferrer"
+                                >
+                                    <OpenInBrowserIcon />
+                                </a>
+
+                                <a
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black',
+                                    }}
+                                    target="_blank"
+                                    href={`https://twitter.com/${image.user.twitter_username}/`}
+                                    rel="noreferrer"
+                                >
+                                    <TwitterIcon />
+                                </a>
+                            </div>
+
+                            <p className="authorInfoTotalPhotos">
+                                Total photos: {image.user.total_photos}
+                            </p>
                         </div>
 
                         <div className="AuthorInfoMain">
-                            <div className="AuthorMainAddInfo">
-                                <p>{image.user.location}</p>
-                                <p>{image.user.bio}</p>
-                            </div>
+                            <p className="AuthorInfoMainBio">
+                                {image.user.bio}
+                            </p>
 
                             <div className="AuthorMainPhotoInfo">
-                                <img
-                                    style={{
-                                        maxWidth: '550px',
-                                    }}
-                                    src={image.urls.regular}
-                                    alt="urls.regular"
-                                />
-                                <p>{image.alt_description}</p>
-                                <p>{image.description}</p>
+                                <p className="PhotoAltDescription">
+                                    {image.alt_description}
+                                </p>
+                                <p className="PhotoDescription">
+                                    {image.description}
+                                </p>
+                                <p className="PhotoDate">
+                                    Realise date:
+                                    {dateObject.toLocaleDateString()}
+                                </p>
 
-                                <p>{dateObject.toLocaleDateString()}</p>
+                                <Link to={`/image/${image.id}`}>
+                                    <div className="PhotoImageContainer">
+                                        <img
+                                            className="PhotoImage"
+                                            src={image.urls.regular}
+                                            alt="urls.regular"
+                                        />
+
+                                        <h3 className="ClickToFull">
+                                            Click to get full image
+                                        </h3>
+                                    </div>
+                                </Link>
                             </div>
-                        </div>
-
-                        <div className="authorLinks">
-                            <a
-                                target="_blank"
-                                href={`https://www.instagram.com/${image.user.instagram_username}/`}
-                                rel="noreferrer"
-                            >
-                                <InstagramIcon />
-                            </a>
-
-                            <a
-                                target="_blank"
-                                href={image.user.portfolio_url}
-                                rel="noreferrer"
-                            >
-                                <OpenInBrowserIcon />
-                            </a>
-
-                            <a
-                                href={`https://twitter.com/${image.user.twitter_username}/`}
-                            >
-                                <TwitterIcon />
-                            </a>
                         </div>
                     </div>
                 </DialogContent>

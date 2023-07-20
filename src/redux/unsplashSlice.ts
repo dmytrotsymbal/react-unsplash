@@ -18,6 +18,7 @@ export type Image = {
         portfolio_url: string //website link
         instagram_username: string | null
         twitter_username: string | null
+        total_photos: number
 
         profile_image: {
             small: string
