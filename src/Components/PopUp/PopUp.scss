@@ -1,0 +1,40 @@
+.PopUpBackground {
+    backdrop-filter: blur(10px);
+
+    .PopUpWindow {
+        background-color: white;
+        padding: 0px;
+        width: 650px;
+
+        .AuthorInfo {
+            background-color: beige;
+
+            .AuthorInfoHeader {
+                width: 100%;
+                background-color: deepskyblue;
+                position: relative;
+                height: 90px;
+
+                img {
+                    height: 70px;
+                    border-radius: 50px;
+                    position: absolute;
+                    left: 15px;
+                    top: calc(50% - 35px);
+                }
+
+                h5 {
+                    position: absolute;
+                    top: 0px;
+                    left: 120px;
+                }
+
+                p {
+                    position: absolute;
+                    top: 30px;
+                    left: 120px;
+                }
+            }
+        }
+    }
+}

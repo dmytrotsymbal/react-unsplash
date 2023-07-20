@@ -4,18 +4,20 @@ import axios from 'axios'
 export type Image = {
     id: string
     description: string | null
-    alt_description: string
+    alt_description: string | null
     urls: {
         regular: string
         small: string
     }
+    updated_at: string
     user: {
-        name: string
-        username: string
-        bio: string
-        location: string
+        name: string | null
+        username: string | null
+        bio: string | null
+        location: string | null
         portfolio_url: string //website link
-        instagram_username: string
+        instagram_username: string | null
+        twitter_username: string | null
 
         profile_image: {
             small: string
