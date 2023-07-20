@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogActions, Button } from '@mui/material'
+import {
+    Dialog,
+    DialogContent,
+    DialogActions,
+    Button,
+    IconButton,
+} from '@mui/material'
 import { Image } from 'redux/unsplashSlice'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser'
@@ -55,7 +61,9 @@ const PopUp = ({ image, handleClose, open }: Props) => {
                                     href={`https://www.instagram.com/${image.user.instagram_username}/`}
                                     rel="noreferrer"
                                 >
-                                    <InstagramIcon />
+                                    <IconButton>
+                                        <InstagramIcon />
+                                    </IconButton>
                                 </a>
 
                                 <a
@@ -67,7 +75,9 @@ const PopUp = ({ image, handleClose, open }: Props) => {
                                     href={image.user.portfolio_url}
                                     rel="noreferrer"
                                 >
-                                    <OpenInBrowserIcon />
+                                    <IconButton>
+                                        <OpenInBrowserIcon />
+                                    </IconButton>
                                 </a>
 
                                 <a
@@ -79,7 +89,9 @@ const PopUp = ({ image, handleClose, open }: Props) => {
                                     href={`https://twitter.com/${image.user.twitter_username}/`}
                                     rel="noreferrer"
                                 >
-                                    <TwitterIcon />
+                                    <IconButton>
+                                        <TwitterIcon />
+                                    </IconButton>
                                 </a>
                             </div>
 

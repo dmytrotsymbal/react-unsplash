@@ -141,3 +141,19 @@
         transform: rotate(1turn);
     }
 }
+
+@media (max-width: 980px) {
+    .PhotoElement {
+        .likesButton {
+            display: flex;
+        }
+
+        .infoButton {
+            display: flex;
+        }
+
+        .shareButton {
+            display: flex;
+        }
+    }
+}

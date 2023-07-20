@@ -4,7 +4,7 @@
     .PopUpWindow {
         padding: 0px;
         width: 600px;
-        min-height: 650px;
+        min-height: 600px;
 
         .AuthorInfo {
             .AuthorInfoHeader {
@@ -47,8 +47,8 @@
 
                 .authorLinks {
                     position: absolute;
-                    right: 25px;
-                    top: 70px;
+                    right: 35px;
+                    top: 65px;
                     width: 100px;
                     display: flex;
                     justify-content: space-between;
@@ -91,6 +91,114 @@
 
                     .ClickToFull {
                         display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 980px) {
+    .PopUpBackground {
+        backdrop-filter: blur(10px);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .PopUpWindow {
+            width: 370px;
+
+            .AuthorInfo {
+                .AuthorInfoHeader {
+                    width: 100%;
+                    background-color: rgb(211, 207, 207);
+                    position: relative;
+                    min-height: 140px;
+
+                    .authorInfoTotalPhotos {
+                        position: absolute;
+                        right: 25px;
+                        top: 5px;
+                    }
+
+                    img {
+                        height: 70px;
+                        border-radius: 50px;
+                        position: absolute;
+                        left: 15px;
+                        top: calc(50% - 35px);
+                    }
+
+                    h5 {
+                        position: absolute;
+                        top: 0px;
+                        left: 100px;
+                    }
+
+                    .AuthorInfoHeaderName {
+                        position: absolute;
+                        top: 30px;
+                        left: 100px;
+                    }
+
+                    .AuthorInfoHeaderLocation {
+                        position: absolute;
+                        top: 60px;
+                        left: 100px;
+                        max-width: 160px;
+                    }
+
+                    .authorLinks {
+                        position: absolute;
+                        right: 35px;
+                        top: 90px;
+                        width: 100px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+
+                .AuthorInfoMain {
+                    padding-left: 15px;
+                    padding-right: 15px;
+
+                    .AuthorInfoMainBio {
+                        width: 350px;
+                    }
+
+                    .PhotoImageContainer {
+                        position: relative;
+
+                        .PhotoImage {
+                            position: absolute;
+                            width: 350px;
+                            padding-right: 5px;
+                        }
+
+                        .ClickToFull {
+                            position: absolute;
+                            top: 150px;
+                            left: calc(50% - 100px);
+                            z-index: 2323;
+                            color: rgb(210, 180, 180);
+                            display: none;
+                            width: 200px;
+                        }
+                    }
+
+                    .PhotoImageContainer:hover {
+                        position: relative;
+
+                        .PhotoImage {
+                            filter: brightness(70%);
+                        }
+
+                        .ClickToFull {
+                            display: block;
+                        }
                     }
                 }
             }
