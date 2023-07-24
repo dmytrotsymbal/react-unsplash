@@ -1,22 +1,24 @@
 import { useEffect } from 'react'
 import Photo from './Photo'
-// import { Grid } from '@mui/material'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { fetchImages } from 'redux/unsplashSlice'
-import Pagination from 'Components/Pagination/Pagination'
-import { nextPage, prevPage } from 'redux/paginationSlice'
 import Masonry from 'react-masonry-css'
 import './PhotosList.css'
+import { loadMore } from 'redux/loadMoreSlice'
 
 const PhotoList = () => {
     const { images, status, error } = useAppSelector((state) => state.unsplash)
     const dispatch = useAppDispatch()
 
-    const pageNumber = useAppSelector((state) => state.pagination.pageNumber)
+    // const pageNumber = useAppSelector((state) => state.pagination.pageNumber)
+
+    const imagesPerPageNumber = useAppSelector(
+        (state) => state.loadMore.imagesPerPageNumber
+    )
 
     useEffect(() => {
-        dispatch(fetchImages(pageNumber))
-    }, [dispatch, pageNumber])
+        dispatch(fetchImages(imagesPerPageNumber))
+    }, [dispatch, imagesPerPageNumber])
 
     if (status === 'loading') {
         return <div className="custom-loader"></div>
@@ -27,17 +29,13 @@ const PhotoList = () => {
     }
 
     const breakpointColumnsObj = {
-        default: 6, // Количество столбцов по умолчанию
-        1100: 3, // Количество столбцов при ширине экрана до 1100px
-        700: 2, // Количество столбцов при ширине экрана до 700px
+        default: 6,
+        1100: 3,
+        700: 2,
     }
-
     return (
         <>
-            <Pagination
-                nextPage={() => dispatch(nextPage())}
-                prevPage={() => dispatch(prevPage())}
-            />
+            <br />
             <div>
                 <Masonry
                     breakpointCols={breakpointColumnsObj}
@@ -51,6 +49,8 @@ const PhotoList = () => {
                     ))}
                 </Masonry>
             </div>
+
+            <button onClick={() => dispatch(loadMore())}>loadMOre</button>
         </>
     )
 }
