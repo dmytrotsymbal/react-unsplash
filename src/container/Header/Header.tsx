@@ -25,6 +25,9 @@ const Header = (props: Props) => {
                 <Link to="/">
                     <button className="HeaderHomeButton">Home</button>
                 </Link>
+                <Link to="/mobiles">
+                    <button className="HeaderMobileButton">Mobiles</button>
+                </Link>
             </div>
 
             <div className="middleSizeHeader">

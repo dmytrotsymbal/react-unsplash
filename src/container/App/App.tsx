@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import ImageDetails from 'pages/ImageDetails/ImageDetails'
 import Favorites from 'pages/Favorites/Favorites'
 import ScrollToTop from 'utils/scrollToTop'
+import Mobiles from 'pages/Mobiles/Mobiles'
 
 type Props = {}
 
@@ -19,6 +20,7 @@ function App(props: Props) {
                 <Route path="/" element={<Home />} />
                 <Route path="/image/:id" element={<ImageDetails />} />
                 <Route path="/favorites" element={<Favorites />} />
+                <Route path="/mobiles" element={<Mobiles />} />
             </Routes>
             <Footer />
         </>
