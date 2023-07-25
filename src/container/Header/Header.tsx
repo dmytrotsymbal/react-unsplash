@@ -5,9 +5,14 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
 import TemporaryDrawer from 'Components/AdaptiveMenu/AdativeMenu'
+import { useAppSelector } from 'redux/hooks'
 
 type Props = {}
 const Header = (props: Props) => {
+    const favoritesImages = useAppSelector(
+        (state) => state.favoritesState.images
+    )
+
     return (
         <div className="Header">
             <div className="leftSizeHeader">
@@ -43,6 +48,8 @@ const Header = (props: Props) => {
                         <ThumbUpAltIcon />
                     </IconButton>
                 </Link>
+
+                <div className="favoritesCount">{favoritesImages.length}</div>
             </div>
 
             <div className="adaptiveMenu">
