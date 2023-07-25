@@ -4,6 +4,7 @@ import paginationSlice from './paginationSlice'
 import loadMoreSlice from './loadMoreSlice'
 import likesSlice from './likesSlice'
 import likesCountSlice from './likesCountSlice'
+import favoritesSlice from './favoritesSlice'
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         loadMore: loadMoreSlice,
         productsLikeState: likesSlice,
         likesCountState: likesCountSlice,
+        favoritesState: favoritesSlice,
     },
 })
 

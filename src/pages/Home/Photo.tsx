@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from 'redux/hooks'
 import { addLike, removeLike } from 'redux/likesSlice'
 import { addLikeCount, removeLikeCount } from 'redux/likesCountSlice'
 import { useState } from 'react'
+import { addToFavorites, removeFromFavorites } from 'redux/favoritesSlice'
 import PopUp from 'Components/PopUp/PopUp'
 
 type PhotoProps = {
@@ -58,6 +59,10 @@ const Photo = ({ image }: PhotoProps) => {
                         isLiked
                             ? dispatch(removeLikeCount(image.id))
                             : dispatch(addLikeCount(image.id))
+
+                        isLiked
+                            ? dispatch(removeFromFavorites(image.id))
+                            : dispatch(addToFavorites(image))
                     }}
                 >
                     {isLiked ? (
