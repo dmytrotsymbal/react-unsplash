@@ -3,6 +3,8 @@ import './Header.scss'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import SearchIcon from '@mui/icons-material/Search'
+import { Link } from 'react-router-dom'
+import TemporaryDrawer from 'Components/AdaptiveMenu/AdativeMenu'
 
 type Props = {}
 const Header = (props: Props) => {
@@ -15,7 +17,9 @@ const Header = (props: Props) => {
                     alt="headerLogo"
                 />
 
-                <button className="HeaderHomeButton">Home</button>
+                <Link to="/">
+                    <button className="HeaderHomeButton">Home</button>
+                </Link>
             </div>
 
             <div className="middleSizeHeader">
@@ -34,9 +38,15 @@ const Header = (props: Props) => {
                     <NotificationsIcon />
                 </IconButton>
 
-                <IconButton>
-                    <ThumbUpAltIcon />
-                </IconButton>
+                <Link to="/favorites">
+                    <IconButton>
+                        <ThumbUpAltIcon />
+                    </IconButton>
+                </Link>
+            </div>
+
+            <div className="adaptiveMenu">
+                <TemporaryDrawer />
             </div>
         </div>
     )

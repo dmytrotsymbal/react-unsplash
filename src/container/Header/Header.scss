@@ -51,7 +51,7 @@
             .searchInput {
                 border: none;
                 background-color: transparent;
-                min-width: 700px;
+                width: 700px;
                 outline: none;
             }
         }
@@ -64,5 +64,89 @@
         width: 100px;
         height: 80px;
         padding-right: 30px;
+    }
+
+    .adaptiveMenu {
+        display: none;
+    }
+}
+
+@media (max-width: 1064px) {
+    .Header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .leftSizeHeader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 80px;
+            padding-left: 5px;
+
+            .headerLogo {
+                height: 80px;
+            }
+
+            .HeaderHomeButton {
+                border-radius: 15px;
+                background-color: black;
+                color: white;
+                width: 80px;
+                height: 40px;
+                cursor: pointer;
+                font-size: 16px;
+                display: none;
+            }
+        }
+
+        .middleSizeHeader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+
+            .searchInputContainer {
+                display: flex;
+                align-items: center;
+                background-color: #f2f2f2;
+                border-radius: 15px;
+                padding: 8px;
+
+                .searchIcon {
+                    margin-right: 8px;
+                    color: #808080;
+                }
+
+                .searchInput {
+                    border: none;
+                    background-color: transparent;
+                    width: 150px;
+                    outline: none;
+                }
+
+                .searchInput::placeholder {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .rightSizeHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100px;
+            height: 80px;
+            padding-right: 30px;
+            display: none;
+        }
+
+        .adaptiveMenu {
+            padding-right: 5px;
+            width: 120px;
+            display: flex;
+        }
     }
 }

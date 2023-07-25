@@ -5,6 +5,7 @@ import { fetchImages } from 'redux/unsplashSlice'
 import Masonry from 'react-masonry-css'
 import './PhotosList.css'
 import { loadMore } from 'redux/loadMoreSlice'
+import { Button } from '@mui/material'
 
 const PhotoList = () => {
     const { images, status, error } = useAppSelector((state) => state.unsplash)
@@ -50,7 +51,7 @@ const PhotoList = () => {
                 </Masonry>
             </div>
 
-            <button onClick={() => dispatch(loadMore())}>loadMOre</button>
+            <Button onClick={() => dispatch(loadMore())}>LOAD MORE</Button>
         </>
     )
 }
