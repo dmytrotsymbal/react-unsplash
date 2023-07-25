@@ -5,10 +5,13 @@ import loadMoreSlice from './loadMoreSlice'
 import likesSlice from './likesSlice'
 import likesCountSlice from './likesCountSlice'
 import favoritesSlice from './favoritesSlice'
+import unsplashMobileSlice from './unsplashMobileSlice'
 
 export const store = configureStore({
     reducer: {
         unsplash: unsplashReducer,
+        unsplashMobile: unsplashMobileSlice,
+        //---------------------------------------------------
         pagination: paginationSlice,
         loadMore: loadMoreSlice,
         productsLikeState: likesSlice,

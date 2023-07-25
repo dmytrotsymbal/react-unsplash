@@ -1,4 +1,4 @@
-import { IconButton } from '@mui/material'
+import { Badge, IconButton } from '@mui/material'
 import './Header.scss'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
@@ -47,12 +47,15 @@ const Header = (props: Props) => {
                 </IconButton>
 
                 <Link to="/favorites">
-                    <IconButton>
-                        <ThumbUpAltIcon />
-                    </IconButton>
+                    <Badge
+                        badgeContent={favoritesImages.length}
+                        color="primary"
+                    >
+                        <IconButton>
+                            <ThumbUpAltIcon />
+                        </IconButton>
+                    </Badge>
                 </Link>
-
-                <div className="favoritesCount">{favoritesImages.length}</div>
             </div>
 
             <div className="adaptiveMenu">
