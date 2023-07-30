@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
 import TemporaryDrawer from 'Components/AdaptiveMenu/AdativeMenu'
 import { useAppSelector } from 'redux/hooks'
+import ThemeButton from 'Components/ThemeButton/ThemeButton'
 
 type Props = {}
 const Header = (props: Props) => {
@@ -42,6 +43,8 @@ const Header = (props: Props) => {
             </div>
 
             <div className="rightSizeHeader">
+                <ThemeButton />
+
                 <IconButton>
                     <NotificationsIcon />
                 </IconButton>

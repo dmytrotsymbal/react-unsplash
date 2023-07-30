@@ -5,6 +5,7 @@ import likesSlice from './likesSlice'
 import likesCountSlice from './likesCountSlice'
 import favoritesSlice from './favoritesSlice'
 import unsplashMobileSlice from './unsplashMobileSlice'
+import themeSlice from './themeSlice'
 
 export const store = configureStore({
     reducer: {
@@ -15,6 +16,8 @@ export const store = configureStore({
         productsLikeState: likesSlice,
         likesCountState: likesCountSlice,
         favoritesState: favoritesSlice,
+        //---------------------------------------------------
+        theme: themeSlice,
     },
 })
 
