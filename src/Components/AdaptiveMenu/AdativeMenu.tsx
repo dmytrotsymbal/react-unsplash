@@ -10,6 +10,8 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from 'redux/hooks'
+import './AdaptiveMenu.scss'
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
@@ -21,6 +23,7 @@ export default function TemporaryDrawer() {
         right: false,
     })
 
+    const sunnyTheme = useAppSelector((state) => state.theme.sunnyTheme)
     const toggleDrawer =
         (anchor: Anchor, open: boolean) =>
         (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -44,15 +47,12 @@ export default function TemporaryDrawer() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List>
+            <List className={sunnyTheme ? 'sideBar' : 'sideBar-dark'}>
                 <ListItem disablePadding>
                     <ListItemButton>
                         <ListItemIcon>
                             <Link
-                                style={{
-                                    color: 'black',
-                                    textDecoration: 'none',
-                                }}
+                                className={sunnyTheme ? 'link' : 'link-dark'}
                                 to="/"
                             >
                                 Home
@@ -66,10 +66,7 @@ export default function TemporaryDrawer() {
                     <ListItemButton>
                         <ListItemIcon>
                             <Link
-                                style={{
-                                    color: 'black',
-                                    textDecoration: 'none',
-                                }}
+                                className={sunnyTheme ? 'link' : 'link-dark'}
                                 to="/mobiles"
                             >
                                 Mobile wallpapers
@@ -83,10 +80,7 @@ export default function TemporaryDrawer() {
                     <ListItemButton>
                         <ListItemIcon>
                             <Link
-                                style={{
-                                    color: 'black',
-                                    textDecoration: 'none',
-                                }}
+                                className={sunnyTheme ? 'link' : 'link-dark'}
                                 to="/favorites"
                             >
                                 Favorites
@@ -105,7 +99,11 @@ export default function TemporaryDrawer() {
             {(['right'] as const).map((anchor) => (
                 <React.Fragment key={anchor}>
                     <Button onClick={toggleDrawer(anchor, true)}>
-                        <MenuIcon style={{ color: 'black' }} />
+                        <MenuIcon
+                            className={
+                                sunnyTheme ? 'MenuIcon' : 'MenuIcon-dark'
+                            }
+                        />
                     </Button>
                     <Drawer
                         anchor={anchor}

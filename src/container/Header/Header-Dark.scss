@@ -90,7 +90,7 @@
 }
 
 @media (max-width: 1064px) {
-    .Header {
+    .Header-dark {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -133,7 +133,7 @@
             .searchInputContainer {
                 display: flex;
                 align-items: center;
-                background-color: #f2f2f2;
+                background-color: hsl(222, 14%, 10%);
                 border-radius: 15px;
                 padding: 8px;
 
@@ -147,6 +147,7 @@
                     background-color: transparent;
                     width: 150px;
                     outline: none;
+                    color: #808080;
                 }
 
                 .searchInput::placeholder {
