@@ -1,5 +1,6 @@
 import { Badge, IconButton } from '@mui/material'
 import './Header.scss'
+import './Header-Dark.scss'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import SearchIcon from '@mui/icons-material/Search'
@@ -14,8 +15,10 @@ const Header = (props: Props) => {
         (state) => state.favoritesState.images
     )
 
+    const sunnyTheme = useAppSelector((state) => state.theme.sunnyTheme)
+
     return (
-        <div className="Header">
+        <div className={sunnyTheme ? 'Header' : 'Header-dark'}>
             <div className="leftSizeHeader">
                 <img
                     className="headerLogo"
@@ -46,7 +49,9 @@ const Header = (props: Props) => {
                 <ThemeButton />
 
                 <IconButton>
-                    <NotificationsIcon />
+                    <NotificationsIcon
+                        className={sunnyTheme ? '' : 'NotificationsIconDark'}
+                    />
                 </IconButton>
 
                 <Link to="/favorites">
@@ -55,7 +60,11 @@ const Header = (props: Props) => {
                         color="primary"
                     >
                         <IconButton>
-                            <ThumbUpAltIcon />
+                            <ThumbUpAltIcon
+                                className={
+                                    sunnyTheme ? '' : 'ThumbUpAltIconDark'
+                                }
+                            />
                         </IconButton>
                     </Badge>
                 </Link>

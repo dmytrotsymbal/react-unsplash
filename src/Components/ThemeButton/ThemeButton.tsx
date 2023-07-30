@@ -13,7 +13,13 @@ const ThemeButton = (props: Props) => {
     return (
         <>
             <IconButton onClick={() => dispatch(toggleTheme())}>
-                {sunnyTheme ? <LightModeIcon /> : <DarkModeIcon />}
+                {sunnyTheme ? (
+                    <LightModeIcon />
+                ) : (
+                    <DarkModeIcon
+                        className={sunnyTheme ? '' : 'DarkModeIconDark'}
+                    />
+                )}
             </IconButton>
         </>
     )
