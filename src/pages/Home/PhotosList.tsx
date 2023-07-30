@@ -6,6 +6,7 @@ import Masonry from 'react-masonry-css'
 import './PhotosList.css'
 import { loadMore } from 'redux/loadMoreSlice'
 import { Button } from '@mui/material'
+import CustomLoader from 'Components/CustomLoader/CustomLoader'
 
 const PhotoList = () => {
     const { images, status, error } = useAppSelector((state) => state.unsplash)
@@ -22,7 +23,7 @@ const PhotoList = () => {
     }, [dispatch, imagesPerPageNumber])
 
     if (status === 'loading') {
-        return <div className="custom-loader"></div>
+        return <CustomLoader />
     }
 
     if (status === 'failed') {

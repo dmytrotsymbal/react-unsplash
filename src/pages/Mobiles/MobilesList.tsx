@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { loadMore } from 'redux/loadMoreSlice'
 import { fetchPhoneWallpapers } from 'redux/unsplashMobileSlice'
 import MobilesItem from './MobilesItem'
+import CustomLoader from 'Components/CustomLoader/CustomLoader'
 
 type Props = {}
 const MobilesList = (props: Props) => {
@@ -21,7 +22,7 @@ const MobilesList = (props: Props) => {
     }, [dispatch, imagesPerPageNumber])
 
     if (status === 'loading') {
-        return <div className="custom-loader"></div>
+        return <CustomLoader />
     }
 
     if (status === 'failed') {
@@ -32,7 +33,7 @@ const MobilesList = (props: Props) => {
         <>
             <Grid container spacing={2}>
                 {mobileImages.map((image) => (
-                    <Grid item xs={3} key={image.id}>
+                    <Grid item xs={12} md={6} lg={3} key={image.id}>
                         <MobilesItem image={image} />
                     </Grid>
                 ))}
