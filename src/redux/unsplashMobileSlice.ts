@@ -50,7 +50,7 @@ export const fetchPhoneWallpapers = createAsyncThunk(
             let page = 1
             while (mobileImages.length < imagesPerPage) {
                 const response = await axios.get(
-                    `https://api.unsplash.com/photos?page=${page}&client_id=s2iDMNtNY-yGTP-Q8T1X3dNDY8Dw3vzuBE6T1ia07hg&per_page=${imagesPerPage}`
+                    `https://api.unsplash.com/photos?page=${page}&client_id=896d4f52c589547b2134bd75ed48742db637fa51810b49b607e37e46ab2c0043&per_page=${imagesPerPage}`
                 )
                 if (response.data.length === 0) {
                     break
