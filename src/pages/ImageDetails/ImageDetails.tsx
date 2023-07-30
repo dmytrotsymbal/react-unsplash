@@ -11,7 +11,7 @@ const ImageDetails: React.FC = () => {
         const fetchImage = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.unsplash.com/photos/${id}?client_id=s2iDMNtNY-yGTP-Q8T1X3dNDY8Dw3vzuBE6T1ia07hg`
+                    `https://api.unsplash.com/photos/?client_id=s2iDMNtNY-yGTP-Q8T1X3dNDY8Dw3vzuBE6T1ia07hg`
                 )
                 setImage(response.data.urls.regular)
             } catch (error) {

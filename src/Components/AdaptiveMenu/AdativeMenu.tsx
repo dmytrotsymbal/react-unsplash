@@ -61,6 +61,24 @@ export default function TemporaryDrawer() {
                         <ListItemText />
                     </ListItemButton>
                 </ListItem>
+
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <Link
+                                style={{
+                                    color: 'black',
+                                    textDecoration: 'none',
+                                }}
+                                to="/mobiles"
+                            >
+                                Mobile wallpapers
+                            </Link>
+                        </ListItemIcon>
+                        <ListItemText />
+                    </ListItemButton>
+                </ListItem>
+
                 <ListItem disablePadding>
                     <ListItemButton>
                         <ListItemIcon>

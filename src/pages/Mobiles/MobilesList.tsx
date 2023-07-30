@@ -1,10 +1,9 @@
-import { Button } from '@mui/material'
-import Photo from 'pages/Home/Photo'
+import { Button, Grid } from '@mui/material'
 import { useEffect } from 'react'
-import Masonry from 'react-masonry-css'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { loadMore } from 'redux/loadMoreSlice'
 import { fetchPhoneWallpapers } from 'redux/unsplashMobileSlice'
+import MobilesItem from './MobilesItem'
 
 type Props = {}
 const MobilesList = (props: Props) => {
@@ -29,26 +28,15 @@ const MobilesList = (props: Props) => {
         return <div>Error: {error}</div>
     }
 
-    const breakpointColumnsObj = {
-        default: 6,
-        1100: 3,
-        700: 2,
-    }
     return (
         <>
-            <div>
-                <Masonry
-                    breakpointCols={breakpointColumnsObj}
-                    className="masonry-grid"
-                    columnClassName="masonry-grid-column"
-                >
-                    {mobileImages.map((image) => (
-                        <div key={image.id} className="masonry-grid-item">
-                            <Photo image={image} />
-                        </div>
-                    ))}
-                </Masonry>
-            </div>
+            <Grid container spacing={2}>
+                {mobileImages.map((image) => (
+                    <Grid item xs={3} key={image.id}>
+                        <MobilesItem image={image} />
+                    </Grid>
+                ))}
+            </Grid>
 
             <Button onClick={() => dispatch(loadMore())}>LOAD MORE</Button>
         </>

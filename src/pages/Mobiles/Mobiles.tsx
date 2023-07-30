@@ -4,7 +4,7 @@ type Props = {}
 const Mobiles = (props: Props) => {
     return (
         <div style={{ width: '95%', margin: 'auto' }}>
-            <h2>Mobiles wallpapers</h2>
+            <h2 style={{ textAlign: 'center' }}>Mobiles wallpapers</h2>
 
             <MobilesList />
         </div>
