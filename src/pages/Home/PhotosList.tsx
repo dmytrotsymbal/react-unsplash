@@ -12,8 +12,6 @@ const PhotoList = () => {
     const { images, status, error } = useAppSelector((state) => state.unsplash)
     const dispatch = useAppDispatch()
 
-    // const pageNumber = useAppSelector((state) => state.pagination.pageNumber)
-
     const imagesPerPageNumber = useAppSelector(
         (state) => state.loadMore.imagesPerPageNumber
     )
