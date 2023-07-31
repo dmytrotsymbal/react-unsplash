@@ -5,7 +5,6 @@ import { fetchImages } from 'redux/unsplashSlice'
 import Masonry from 'react-masonry-css'
 import './PhotosList.css'
 import { loadMore } from 'redux/loadMoreSlice'
-import { Button } from '@mui/material'
 import CustomLoader from 'Components/CustomLoader/CustomLoader'
 
 const PhotoList = () => {
@@ -21,7 +20,9 @@ const PhotoList = () => {
     }, [dispatch, imagesPerPageNumber])
 
     if (status === 'loading') {
-        return <CustomLoader />
+        setTimeout(() => {
+            return <CustomLoader />
+        }, 2000)
     }
 
     if (status === 'failed') {
@@ -33,6 +34,7 @@ const PhotoList = () => {
         1100: 3,
         700: 2,
     }
+
     return (
         <>
             <br />
@@ -50,7 +52,12 @@ const PhotoList = () => {
                 </Masonry>
             </div>
 
-            <Button onClick={() => dispatch(loadMore())}>LOAD MORE</Button>
+            <button
+                className="loadMoreButton"
+                onClick={() => dispatch(loadMore())}
+            >
+                LOAD MORE
+            </button>
         </>
     )
 }
