@@ -20,7 +20,9 @@ const FavList = (props: Props) => {
     return (
         <div>
             {favoriteImages.length === 0 ? (
-                <div>No favorite images yet.</div>
+                <div style={{ textAlign: 'center' }}>
+                    No favorite images yet.
+                </div>
             ) : (
                 <div>
                     <Masonry
