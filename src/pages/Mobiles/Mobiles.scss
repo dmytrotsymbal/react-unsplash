@@ -1,14 +1,16 @@
 .mobilesTitle,
 .favoritesTitle {
+    margin: 0;
+    padding: 15px 0;
+    font-size: 24px;
     text-align: center;
-    margin: 0px;
-    padding: 20px 0px;
 }
 
 .mobilesTitle-dark,
 .favoritesTitle-dark {
-    text-align: center;
-    margin: 0px;
-    padding: 20px 0px;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 24px;
     color: #808080;
+    text-align: center;
 }
