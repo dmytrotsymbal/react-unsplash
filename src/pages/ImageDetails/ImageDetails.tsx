@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import CustomLoader from 'Components/CustomLoader/CustomLoader'
 import './ImageDetails.scss'
+import { useAppSelector } from 'redux/hooks'
 
 type Image = {
     id: string
@@ -37,6 +38,8 @@ const ImageDetails = () => {
     const [image, setImage] = useState<Image | null>(null)
     const [loading, setLoading] = useState(true)
 
+    const sunnyTheme = useAppSelector((state) => state.theme.sunnyTheme)
+
     useEffect(() => {
         const fetchImage = async () => {
             try {
@@ -63,10 +66,23 @@ const ImageDetails = () => {
     }
 
     return (
-        <div className="ImageDetailsPage">
+        <div
+            className={
+                sunnyTheme ? 'ImageDetailsPage' : 'ImageDetailsPage_dark'
+            }
+        >
             <div style={{ width: '95%', margin: 'auto' }}>
-                <h4 style={{ textAlign: 'center' }}>Image Details</h4>
-                <p style={{ textAlign: 'center' }}>{image.user.username}</p>
+                <h4>Image Details</h4>
+                <p>
+                    Author:
+                    <a
+                        href={`https://www.instagram.com/${image.user.instagram_username}`}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <b>@{image.user.username}</b>
+                    </a>
+                </p>
                 <img
                     className="BigImg"
                     src={image.urls.regular}

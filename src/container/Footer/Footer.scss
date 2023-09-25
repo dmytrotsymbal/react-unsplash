@@ -1,0 +1,28 @@
+.footer {
+    width: 100%;
+    height: 80px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        margin-left: 5px;
+    }
+}
+
+.footer-dark {
+    width: 100%;
+    height: 80px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #20232a;
+    color: #808080;
+
+    span {
+        margin-left: 5px;
+        color: rgb(93, 93, 241);
+    }
+}

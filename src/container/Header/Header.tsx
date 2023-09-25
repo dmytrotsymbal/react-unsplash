@@ -18,11 +18,12 @@ const Header = (props: Props) => {
     const sunnyTheme = useAppSelector((state) => state.theme.sunnyTheme)
 
     return (
-        <div className={sunnyTheme ? 'Header' : 'Header-dark'}>
+        <header className={sunnyTheme ? 'Header' : 'Header-dark'}>
             <div className="leftSizeHeader">
                 <img
                     className="headerLogo"
-                    src="https://png.pngtree.com/png-vector/20190508/ourmid/pngtree-gallery-vector-icon-png-image_1028015.jpg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"
+                    // src="https://png.pngtree.com/png-vector/20190508/ourmid/pngtree-gallery-vector-icon-png-image_1028015.jpg"
                     alt="headerLogo"
                 />
 
@@ -73,7 +74,7 @@ const Header = (props: Props) => {
             <div className="adaptiveMenu">
                 <TemporaryDrawer />
             </div>
-        </div>
+        </header>
     )
 }
 export default Header

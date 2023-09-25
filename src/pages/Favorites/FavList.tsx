@@ -11,6 +11,8 @@ const FavList = (props: Props) => {
         (state) => state.favoritesState.images
     )
 
+    const sunnyTheme = useAppSelector((state) => state.theme.sunnyTheme)
+
     const breakpointColumnsObj = {
         default: 6,
         1100: 3,
@@ -20,7 +22,13 @@ const FavList = (props: Props) => {
     return (
         <div>
             {favoriteImages.length === 0 ? (
-                <div style={{ textAlign: 'center' }}>
+                <div
+                    className={
+                        sunnyTheme
+                            ? 'emptyFavlistMessage'
+                            : 'emptyFavlistMessage_dark'
+                    }
+                >
                     No favorite images yet.
                 </div>
             ) : (
