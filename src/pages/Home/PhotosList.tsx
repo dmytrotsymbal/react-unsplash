@@ -21,9 +21,7 @@ const PhotoList = (props: Props) => {
     }, [dispatch, imagesPerPageNumber])
 
     if (status === 'loading') {
-        setTimeout(() => {
-            return <CustomLoader />
-        }, 2000)
+        return <CustomLoader />
     }
 
     if (status === 'failed') {

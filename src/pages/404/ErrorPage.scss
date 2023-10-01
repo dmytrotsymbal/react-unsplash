@@ -12,6 +12,21 @@
     p {
         font-size: 16px;
     }
+
+    .error404-button {
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+        width: 180px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgb(63, 62, 62);
+        }
+    }
 }
 
 .error404-container_dark {
@@ -29,5 +44,20 @@
     p {
         font-size: 16px;
         color: #808080;
+    }
+
+    .error404-button_dark {
+        border-radius: 15px;
+        background-color: white;
+        color: black;
+        width: 180px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgb(203, 202, 202);
+        }
     }
 }
