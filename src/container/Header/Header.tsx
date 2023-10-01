@@ -23,7 +23,6 @@ const Header = (props: Props) => {
                 <img
                     className="headerLogo"
                     src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"
-                    // src="https://png.pngtree.com/png-vector/20190508/ourmid/pngtree-gallery-vector-icon-png-image_1028015.jpg"
                     alt="headerLogo"
                 />
 
