@@ -1,7 +1,7 @@
-import Photo from 'pages/Home/Photo'
 import Masonry from 'react-masonry-css'
 import { useAppSelector } from 'redux/hooks'
-import { Image } from 'redux/unsplashSlice'
+import { Image } from 'types/ImageTypes'
+import FavoritePhoto from './FavoritePhoto'
 
 type Props = {}
 
@@ -39,8 +39,8 @@ const FavList = (props: Props) => {
                         columnClassName="masonry-grid-column"
                     >
                         {favoriteImages.map((image: Image) => (
-                            <div key={image.id}>
-                                <Photo image={image} />
+                            <div key={image.id} className="masonry-grid-item">
+                                <FavoritePhoto image={image} />
                             </div>
                         ))}
                     </Masonry>

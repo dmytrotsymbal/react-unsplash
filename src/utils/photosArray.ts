@@ -1,16 +1,16 @@
 export type Image = {
-    id: string
-    description: string | null
-    alt_description: string
-    urls: {
-        regular: string
-        small: string
-    }
-    user: {
-        name: string
-        username: string
-    }
-    likes: number
+    // id: string
+    // description: string | null
+    // alt_description: string
+    // urls: {
+    //     regular: string
+    //     small: string
+    // }
+    // user: {
+    //     name: string
+    //     username: string
+    // }
+    // likes: number
 }
 
 // const photosArray: Image[] = []

@@ -5,7 +5,7 @@ import {
     Button,
     IconButton,
 } from '@mui/material'
-import { Image } from 'redux/unsplashSlice'
+import { Image } from 'types/ImageTypes'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser'
 import TwitterIcon from '@mui/icons-material/Twitter'

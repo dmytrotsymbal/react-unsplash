@@ -3,11 +3,12 @@ import Photo from './Photo'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { fetchImages } from 'redux/unsplashSlice'
 import Masonry from 'react-masonry-css'
-import './PhotosList.css'
 import { loadMore } from 'redux/loadMoreSlice'
 import CustomLoader from 'Components/CustomLoader/CustomLoader'
 
-const PhotoList = () => {
+type Props = {}
+
+const PhotoList = (props: Props) => {
     const { images, status, error } = useAppSelector((state) => state.unsplash)
     const dispatch = useAppDispatch()
 

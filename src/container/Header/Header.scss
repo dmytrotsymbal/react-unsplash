@@ -26,6 +26,11 @@
             height: 40px;
             cursor: pointer;
             font-size: 16px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: rgb(63, 62, 62);
+            }
         }
         .HeaderMobileButton {
             border-radius: 15px;
@@ -35,6 +40,11 @@
             height: 40px;
             cursor: pointer;
             font-size: 16px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: rgb(63, 62, 62);
+            }
         }
     }
 

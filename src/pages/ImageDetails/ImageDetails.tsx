@@ -4,34 +4,7 @@ import axios from 'axios'
 import CustomLoader from 'Components/CustomLoader/CustomLoader'
 import './ImageDetails.scss'
 import { useAppSelector } from 'redux/hooks'
-
-type Image = {
-    id: string
-    description: string | null
-    alt_description: string | null
-    urls: {
-        regular: string
-        small: string
-    }
-    updated_at: string
-    user: {
-        name: string | null
-        username: string | null
-        bio: string | null
-        location: string | null
-        portfolio_url: string //website link
-        instagram_username: string | null
-        twitter_username: string | null
-        total_photos: number
-
-        profile_image: {
-            small: string
-            medium: string
-            large: string
-        }
-    }
-    likes: number
-}
+import { Image } from 'types/ImageTypes'
 
 const ImageDetails = () => {
     const { id } = useParams<{ id: string }>()

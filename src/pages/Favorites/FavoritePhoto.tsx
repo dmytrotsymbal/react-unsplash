@@ -9,12 +9,13 @@ import { addLikeCount, removeLikeCount } from 'redux/likesCountSlice'
 import { useState } from 'react'
 import { addToFavorites, removeFromFavorites } from 'redux/favoritesSlice'
 import PopUp from 'Components/PopUp/PopUp'
+import './FavoritePhoto.scss'
 
 type PhotoProps = {
     image: Image
 }
 
-const Photo = ({ image }: PhotoProps) => {
+const FavoritePhoto = ({ image }: PhotoProps) => {
     const isLiked = useAppSelector((state) => state.productsLikeState[image.id])
     const dispatch = useAppDispatch()
 
@@ -38,13 +39,13 @@ const Photo = ({ image }: PhotoProps) => {
 
     return (
         <>
-            <div className="PhotoElement">
+            <div className="favoritePhotoElement">
                 <Link
                     style={{ textDecoration: 'none', color: 'black' }}
                     to={`/image/${image.id}`}
                 >
                     <img
-                        className="CardImg"
+                        className="favoriteCardImg"
                         src={image.urls.small}
                         alt="PhotoElementImg"
                     />
@@ -92,4 +93,4 @@ const Photo = ({ image }: PhotoProps) => {
     )
 }
 
-export default Photo
+export default FavoritePhoto

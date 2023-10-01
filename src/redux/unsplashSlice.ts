@@ -1,33 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-
-export type Image = {
-    id: string
-    description: string | null
-    alt_description: string | null
-    urls: {
-        regular: string
-        small: string
-    }
-    updated_at: string
-    user: {
-        name: string | null
-        username: string | null
-        bio: string | null
-        location: string | null
-        portfolio_url: string //website link
-        instagram_username: string | null
-        twitter_username: string | null
-        total_photos: number
-
-        profile_image: {
-            small: string
-            medium: string
-            large: string
-        }
-    }
-    likes: number
-}
+import { Image } from 'types/ImageTypes'
 
 interface UnsplashState {
     images: Image[]

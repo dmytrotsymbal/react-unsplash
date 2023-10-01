@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Image } from 'redux/unsplashSlice'
+import { Image } from 'types/ImageTypes'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import ShareIcon from '@mui/icons-material/Share'

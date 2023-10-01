@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Image } from './unsplashSlice'
+import { Image } from 'types/ImageTypes'
 
 type likesType = {
     images: Image[]
