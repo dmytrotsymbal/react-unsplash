@@ -30,6 +30,30 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
+    .copiedMessage {
+        position: absolute;
+        top: 40%;
+        text-align: center;
+        object-fit: cover;
+        filter: brightness(100%);
+        padding: 0;
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        color: white;
+    }
+
+    .hiddenCopiedMessage {
+        position: absolute;
+        object-fit: cover;
+        filter: brightness(60%);
+        padding: 0;
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
     .likesButtonClicked {
         position: absolute;
         z-index: 5;
@@ -61,6 +85,16 @@
         border-radius: 15px;
         width: 100%;
         height: 100%;
+    }
+
+    .favoriteDarkCardImg {
+        object-fit: cover;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        filter: brightness(40%);
     }
 
     .infoButton {
@@ -100,6 +134,25 @@
         cursor: pointer;
         display: none;
     }
+
+    .shareButtonClicked {
+        position: absolute;
+        z-index: 5;
+        background-color: rgb(3, 160, 3);
+        bottom: 12px;
+        right: 5px;
+        width: 45px;
+        height: 25px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        cursor: pointer;
+        display: none;
+    }
 }
 
 .favoritePhotoElement:hover {
@@ -121,6 +174,10 @@
     .shareButton {
         display: flex;
     }
+
+    .shareButtonClicked {
+        display: flex;
+    }
 }
 
 @media (max-width: 980px) {
@@ -134,6 +191,10 @@
         }
 
         .shareButton {
+            display: flex;
+        }
+
+        .shareButtonClicked {
             display: flex;
         }
     }

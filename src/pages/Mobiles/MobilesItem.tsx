@@ -3,6 +3,7 @@ import { Image } from 'types/ImageTypes'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import ShareIcon from '@mui/icons-material/Share'
+import DoneAllIcon from '@mui/icons-material/DoneAll'
 import { useAppSelector, useAppDispatch } from 'redux/hooks'
 import { addLike, removeLike } from 'redux/likesSlice'
 import { addLikeCount, removeLikeCount } from 'redux/likesCountSlice'
@@ -37,6 +38,16 @@ const MobilesItem = ({ image }: PhotoProps) => {
 
     //----------------------------------------------------------------
 
+    const [copied, setCopied] = useState<boolean>(false)
+
+    const handleCopied = () => {
+        setCopied(true)
+        navigator.clipboard.writeText(image.urls.regular)
+        setTimeout(() => {
+            setCopied(false)
+        }, 2000)
+    }
+
     return (
         <>
             <div className="MobilesItem">
@@ -45,10 +56,18 @@ const MobilesItem = ({ image }: PhotoProps) => {
                     to={`/image/${image.id}`}
                 >
                     <img
-                        className="CardImg"
+                        className={copied ? 'darkCardImg' : 'CardImg'}
                         src={image.urls.small}
                         alt="PhotoElementImg"
                     />
+
+                    <div
+                        className={
+                            copied ? 'copiedMessage' : 'hiddenCopiedMessage'
+                        }
+                    >
+                        Copied to clipboard
+                    </div>
                 </Link>
                 <button
                     className={isLiked ? 'likesButtonClicked' : 'likesButton'}
@@ -81,8 +100,15 @@ const MobilesItem = ({ image }: PhotoProps) => {
 
                 <PopUp open={open} handleClose={handleClose} image={image} />
 
-                <button className="shareButton">
-                    <ShareIcon style={{ width: '17px' }} />
+                <button
+                    className={copied ? 'shareButtonClicked' : 'shareButton'}
+                    onClick={handleCopied}
+                >
+                    {copied ? (
+                        <DoneAllIcon style={{ width: '17px' }} />
+                    ) : (
+                        <ShareIcon style={{ width: '18px' }} />
+                    )}
                 </button>
             </div>
         </>
